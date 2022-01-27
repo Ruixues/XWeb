@@ -100,6 +100,9 @@ type FasthttpRouter struct {
 	raw fasthttprouter.Router
 }
 
+func NewFasthttpRouter() FasthttpRouter {
+	return FasthttpRouter{}
+}
 func (z *FasthttpRouter) newWrapper(handler Handler) fasthttp.RequestHandler {
 	return func(ctx *fasthttp.RequestCtx) {
 		handler(newContext(ctx))
